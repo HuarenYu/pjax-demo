@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <ul>
+      <li><a href="/">首页</a></li>
+      <li><a href="/poem/1">诉衷情·当年万里觅封侯</a></li>
+      <li><a href="/poem/2">十一月四日风雨大作</a></li>
+      <li><a href="/poem/3">临安春雨初霁</a></li>
+    </ul>
+    <div id="container"></div>
+<script src="/jquery/dist/jquery.js"></script>
+<script src="/jquery-pjax/jquery.pjax.js"></script>
+<script type="text/javascript">
+$(function(){
+  // pjax
+  $(document).pjax('a', '#container');
+  $.pjax.reload('#container');
+  
+  $(document).on('pjax:success', function(data, status, xhr, options) {
+    console.log(data);
+  });
+})
+</script>
+  </body>
+</html>
